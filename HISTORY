@@ -1,5 +1,17 @@
 = RELEASE HISTORY
 
+== 1.2 / 2010-03-21
+
+This release adjusts for change in plugin directory name (i.e. plugins/)
+for the latest version of the plugin gem. This release also adds method
+quicksearch to the redfish template.
+
+Changes:
+
+* Rename 'plugin' directory to 'plugins'.
+* Add quicksearch to redfish template's method list.
+
+
 == 1.1 / 2009-11-16
 
 This release improves the projects underlying design, makes minor
