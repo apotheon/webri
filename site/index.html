@@ -9,61 +9,82 @@
 
   <META NAME="DESCRIPTION" CONTENT="Web-based ri documentation browser.">
   <META NAME="KEYWORDS" CONTENT="documentation, ri, rdoc">
+
+  <script src="assets/jquery.js"></script>
+  <script>
+    function nextPage() {
+      var page = $('.page:visible');
+      var next = page.next('.page');
+      if (next.length == 0){ next = $('.page:first'); }
+      page.hide(0, function(){
+        next.show(0);
+      });
+    };
+  </script>
 </head>
 
 <body>
 
 <div class="menu">
+  <b>WebRI</b> :
   <!-- &lt;<a href="http://tigerops.rubyforge.org/">Homepage</a>&gt; -->
   <a href="rdoc/index.html">API Documentation</a> &middot;
   <a href="http://googlegroups.com/group/proutils">Mailing List</a> &middot;
+  <a href="http://github.com/proutils/webri/issues">Report Issue</a> &middot;
   <a href="http://github.com/proutils/webri">Development</a>
 </div>
 
-<div class="header">
-  <div class="title">WebRI</div>
-
-  <div class="subtitle">
-    Razzle Dazzle Your Document Hassle
-  </div>
-</div>
-
 <div class="container">
+<div class="slider">
 
+  <div class="page">
+    <a href="javascript: nextPage();"><img src="assets/img/cornertr.gif" style="position: absolute; right: 0;"/></a>
 
-  <div class="content" style="position: relative;">
+    <div class="header" style="margin-top: 140px; margin-bottom: 65px;">
+      <div class="title">WebRI</div>
+
+      <div class="subtitle">
+        Razzle Dazzle Your Document Hassle
+      </div>
+
+      <div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page"  style="display: none;">
+    <a href="javascript: nextPage();"><img src="assets/img/cornertr.gif" style="position: absolute; right: 0;"/></a>
 
     <img src="assets/img/onefish.jpg"/>
 
     <h2>Introduction</h2>
 
     <p>
-      WebRI is both a web-based ri-browser which can provided
-      ri documentation dynamically, by running a webrick server, and
-      a superalatvie Ruby documentation generator with a variety of
-      built in templates.
+      WebRI is both a a superlative Ruby documentation generator with a variety of
+      built in templates and a web-based ri-browser which can provided ri documentation
+      dynamically via a webrick server.
     </p>
 
     <h3>FEATURES</h3>
     <ul style="margin-top: 1em;">
     <li> Beautiful Templates, some are enhanced renditions of designs currently in use.</li>
-    <li> Wide Variety of Templates, built-in templates to meet a varitey of tastes and needs.</li>
-    <li> Component System, under-the-hood allows templates to be easily extended.</li>
+    <li> Wide Variety of Templates, built-in templates to meet a variety of tastes and needs.</li>
+    <li> Component System under-the-hood allows templates to be easily extended.</li>
     </ul>
 
     <h3>LIMITATIONS</h3>
 
     <p>Please note that the ri web server and the generation system
-    were developed separately, and are not well integrated as of yet.
-    For this reason the ri server cannot use the templates available
-    to the generators.  No serious issue withstanding, a future version
-    will remedy this.</p>
+    were developed separately and are not integrated. For this reason the
+    ri server cannot use the templates available to the generators.
+    A future version will remedy this, but it requires the completion of
+    <a href="http://github.com/proutils/ri2/">ri2</a>.</p>
 
     <h3>EXAMPLES</h3>
 
-    <p>Becuase I am sure you want to see exactly waht you are in for, before 
-    trumping through any more wordage, here is a sampling of a number of
-    WebRI's built-in templates:</p>
+    <p>Because I am sure you want to see exactly what you are in for before 
+    trumping through any more wordage, here is a sampling of WebRI's built-in
+    templates:</p>
 
     <p style="padding: 10px 2em;">
       <a href="samples/onefish/index.html">OneFish</a> &nbsp;
@@ -73,7 +94,11 @@
       <a href="samples/longfish/index.html">LongFish</a>
     </p>
 
-    <br/><br/><br/>
+    <p>And that's just for starters. Speaking of which <a href="javascript: nextPage();">...</a></p>
+  </div>
+
+  <div class="page" style="display: none;">
+    <a href="javascript: nextPage();"><img src="assets/img/cornertr.gif" style="position: absolute; right: 0;"/></a>
 
     <img src="assets/img/twofish.jpg"/>
 
@@ -107,22 +132,27 @@
 
     <p>WebRI make use of project metadata if it is available. In particular
     templates can make excellent use <a href="http://proutils.github.com/pom">POM</a> metadata.
-    But, if POM is not present, WebRI will fallback to a <code>.gemspec</code> file,
-    if one can be found, although the metadata avialable via a gemspec is more 
+    But if POM is not present, WebRI will fallback to a <code>.gemspec</code> file,
+    if one can be found, although the metadata available via a gemspec is more 
     limited than that available via POM.</p>
+  </div>
 
+  <div class="page" style="display: none;">
+    <a href="javascript: nextPage();"><img src="assets/img/cornertr.gif" style="position: absolute; right: 0;"/></a>
 
-    <h3>Using the Web Server</h3>
+    <img src="assets/img/redfish.jpg"/>
+
+    <h2>Using the Web Server</h2>
 
     <p>WebRI can be used as a dynamic ri browser, either for a single project
     or for a collection of libraries. Indeed, the WebRI server can be used
-    to browse the entire installed object system --eveything documented in
-    your central install locations. To do the later, simply execute
-    <tt>webri-server</tt> with no arguments and open a webrowser to 
+    to browse the entire installed object system --everything documented in
+    your central install locations. To do the this, simply execute
+    <tt>webri-server</tt> with no arguments and open a browser to 
     the local port designated (see below).</p>
 
     <pre>
-      $ webr-server
+      $ webri-server
     </pre>
 
     <p>To browse per-project ri documentation, you will first need to locate
@@ -134,11 +164,11 @@
     </pre>
 
     <p>Sometimes a package will include a convenience script for generating these.
-    Try running 'rake -T', or look for a 'script/' or 'task/' executable that does
-    the job. Usually the generated documentation is placed in either ri/ or doc/ri/.
+    Try running 'rake -T', or look for a 'script/' executable that does the job.
+    Usually the generated documentation is placed in either ri/ or doc/ri/.
     I will use doc/ri/ in the following example, adjust your directory as needed.</p>
 
-    <p>With ri files loacted you can view them with:</p>
+    <p>With ri files located you can view them with:</p>
 
     <pre>
       $ webri-server doc/ri
@@ -160,22 +190,24 @@
     </pre>
 
     <p>On the left side of the screen you will see a navigation tree, and the right side
-    contans an infromation panel.</p>
+    contains an information panel.</p>
 
-    <p>NOTE: Becuase <tt>ri</tt> itself isn't very fast, if you use WebRI against the
+    <p>NOTE: Because <tt>ri</tt> itself isn't very fast, if you use WebRI against the
     entire set of installed Ruby libraries it can take a few seconds to load up.
     (Sure wish FastRI turned out for the better.)</p>
+  </div>
 
-    <br/><br/>
+  <div class="page" style="display: none;">
+    <a href="javascript: nextPage();"><img src="assets/img/cornertr.gif" style="position: absolute; right: 0;"/></a>
 
     <img src="assets/img/bluefish.jpg"/>
 
     <h2>Development</h2>
 
     <p>
-      WebRI is a <a href="http://proutils.github.com">ProUtils</a> project. Developement is hosted
-      on GitHub in a <i>very techincally sophisticated</i> <a href="http://github.com/proutils/webri/">git repository</a>.
-      You can puruse the <a href="http://github.com/proutils/webri/">source code</a> there, and see just how
+      WebRI is a <a href="http://proutils.github.com">ProUtils</a> project. Development is hosted
+      on GitHub in a <i>very technically sophisticated</i> <a href="http://github.com/proutils/webri/">git repository</a>.
+      You can peruse the <a href="http://github.com/proutils/webri/">source code</a> there, and see just how
       <i>ruby_way</i> it all is.
     </p>
 
@@ -185,11 +217,11 @@
       git clone git://github.com/proutils/webri.git
     </pre>
 
-    <p>Please, if see any code that doesn't seem <i>ruby_way</i> enough, <b>fork it and fix it</b> or write up an d
-    <a href="http://">issue ticket</a>, or if all else fails, contact <a href="mailto:transfireATgmail.com">Trans</a>.</p>
+    <p>Please, if see any code that doesn't seem <i>ruby_way</i> enough, <b>fork it and fix it</b> or write up an
+    <a href="http://">issue ticket</a>, or if all else fails contact <a href="mailto:transfireATgmail.com">Trans</a>.</p>
   </div>
 
-  <br/><br/><br/>
+</div>
 </div>
 
 <div class="footer">
