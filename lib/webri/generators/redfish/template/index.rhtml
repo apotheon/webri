@@ -57,9 +57,8 @@
 
       <div id="classindex-section" class="section project-section">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="assets/icon/find.png"
-            height="16" width="16" alt="[+]"
-            title="show/hide quicksearch" /></span></h3>
+          <span class="search-toggle"><img src="assets/icon/find.png" height="16" width="16" alt="[+]" title="show/hide quicksearch" /></span>
+        </h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
         <fieldset>
           <legend>Quicksearch</legend>
@@ -77,15 +76,24 @@
 
       <!-- METHODS -->
       <div id="methodindex-section" class="section project-section">
-        <h3 class="section-header">Method Index</h3>
+        <h3 class="section-header">Method Index
+          <span class="search-toggle"><img src="assets/icon/find.png" height="16" width="16" alt="[+]" title="show/hide quicksearch" /></span>
+        </h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value="" class="quicksearch-field" />
+        </fieldset>
+        </form>
+
         <ul>
-          <% methods_all.each do |method| %>
-            <% t = method.singleton ? 'singleton' : 'method' %>
-            <li class="<%= t %>" style="clear: both;">
-              <span class="method-parent-aside"><%= method.parent.full_name %></span>
-              <a href="<%= method.path %>"><%= method.pretty_name %></a>
-            </li>
-          <% end %>
+        <% methods_all.each do |method| %>
+          <% t = method.singleton ? 'singleton' : 'method' %>
+          <li class="<%= t %>" style="clear: both;">
+            <span class="method-parent-aside"><%= method.parent.full_name %></span>
+            <a href="<%= method.path %>"><%= method.pretty_name %></a>
+          </li>
+        <% end %>
         </ul>
       </div>
 
