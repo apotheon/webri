@@ -1,0 +1,139 @@
+---
+email:
+  service : Email
+  file    : ~
+  subject : ~
+  mailto  : ruby-talk@ruby-lang.org
+  from    : <%= ENV['EMAIL_ACCOUNT'] %>
+  server  : <%= ENV['EMAIL_SERVER'] %>
+  port    : <%= ENV['EMAIL_PORT'] %>
+  account : <%= ENV['EMAIL_ACCOUNT'] %>
+  domain  : <%= ENV['EMAIL_DOMAIN'] %>
+  login   : <%= ENV['EMAIL_LOGIN'] %>
+  secure  : <%= ENV['EMAIL_SECURE'] %>
+  active  : true
+
+box:
+  service  : Box
+  types    : [gem, gz]
+  include  : [bin, demo, lib, meta, test, "[A-Z]*" ]
+  exclude  : ~
+  master   : true
+  active   : true
+
+rdoc:
+  service  : RDoc
+  template : redfish
+  include  : [ lib/**/*.rb, README, LICENSE, HISTORY ]
+#  exclude  :
+#    - "lib/webri/generators/*/template/**/*"
+#    - "lib/webri/generators/*/static/**/*"
+#    - "lib/webri/components/*/static/**/*"
+#    - "lib/webri/server/assets/**/*"
+#    - "lib/webri/server/templates/**/*"
+  main     : ~
+  extra    : ~
+  active   : true
+
+ridoc:
+  service: RIDoc
+  include: [ lib/**/*.rb ]
+#  exclude:
+#    - "lib/webri/generators/*/template/**/*"
+#    - "lib/webri/generators/*/static/**/*"
+#    - "lib/webri/components/*/static/**/*"
+#    - "lib/webri/riserver/assets/**/*"
+#    - "lib/webri/riserver/templates/**/*"
+  active : true
+
+dnote:
+  service: DNote
+  loadpath : ~
+  labels   : ~
+  output   : ~
+  format   : ~
+  active   : true
+
+stats:
+  service  : Stats
+  title    : ~
+  loadpath : ~
+  exclude  : ~
+  output   : ~
+  active   : true
+
+syntax:
+  service  : Syntax
+  loadpath : ~
+  exclude  : ~
+  active   : false
+
+testrb:
+  service  : testrb
+  tests    : ~
+  exclude  : ~
+  loadpath : ~
+  requires : ~
+  live     : false   
+  active   : false
+
+vclog:
+  service  : VClog
+  format   : html   # xml, txt
+  layout   : rel    # gnu
+  typed    : false
+  output   : ~
+  active   : false
+
+# Generate WebRI Samples
+
+webri-sample-redfish:
+  service  : WebRI
+  title    : Fish Sampler
+  template : redfish
+  include  : [demo/fish-sampler/README, demo/fish-sampler/lib]
+  main     : demo/fish-sampler/README
+  output   : site/samples/redfish
+  extra    : ~
+  active   : true
+
+webri-sample-blackfish:
+  service  : WebRI
+  title    : Fish Sampler
+  template : blackfish
+  include  : [demo/fish-sampler/README, demo/fish-sampler/lib]
+  main     : demo/fish-sampler/README
+  output   : site/samples/blackfish
+  extra    : ~
+  active   : true
+
+webri-sample-longfish:
+  service  : WebRI
+  title    : Fish Sampler
+  template : longfish
+  include  : [demo/fish-sampler/README, demo/fish-sampler/lib]
+  main     : demo/fish-sampler/README
+  output   : site/samples/longfish
+  extra    : ~
+  active   : true
+
+webri-sample-onefish:
+  service  : WebRI
+  title    : Fish Sampler
+  template : onefish
+  include  : [demo/fish-sampler/README, demo/fish-sampler/lib]
+  main     : demo/fish-sampler/README
+  output   : site/samples/onefish
+  extra    : ~
+  active   : true
+
+webri-sample-twofish:
+  service  : WebRI
+  title    : Fish Sampler
+  template : twofish
+  include  : [demo/fish-sampler/README, demo/fish-sampler/lib]
+  main     : demo/fish-sampler/README
+  output   : site/samples/twofish
+  extra    : ~
+  active   : true
+
