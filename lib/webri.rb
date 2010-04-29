@@ -25,13 +25,14 @@ begin
 
       alias_method :rdoc_parse, :parse
 
-#FIXME: look up templates dynamically
+      #TODO: Better way to versify template exists?
 
       def parse(argv)
         rdoc_parse(argv)
-        if %w{redfish twofish blackfish longfish onefish newfish}.include?(@template)
+        begin #if %w{redfish twofish blackfish longfish onefish newfish}.include?(@template)
           require "webri/generators/#{template}"
           @generator = WebRI.const_get(@template.capitalize)
+        rescue Loaderror
         end
       end
     end
