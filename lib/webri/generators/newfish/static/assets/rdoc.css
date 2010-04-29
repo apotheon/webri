@@ -18,7 +18,7 @@ body {
 }
 
 #main {
-  width: 1024px;
+  width: 1048px;
   margin: 0 auto;
 }
 
@@ -45,7 +45,7 @@ h2,h3,h4 { margin-top: 1.5em; }
 
 a {
   color: #FF226C;
-  color: #844;
+  color: #224;
   text-decoration: none;
 }
 
@@ -208,7 +208,7 @@ body.file p {
 
 #metadata {
   float: right;
-  width: 320px;
+  width: 330px;
   margin-top: 10px;
   border-left: 1px solid #ccc;
   padding-left: 12px;
@@ -352,9 +352,9 @@ ul.link-list .type {
 /* @group Documentation Section */
 
 #documentation h1 {
-  margin: 8px 0 0 0;
-  padding: 0.5em 0.1em 0.1em 0.1em;
-  border-bottom: 0px solid #bbb;
+  margin: 8px 0 4px 0;
+  padding: 0.2em 0.1em 0.1em 0.1em;
+  border-bottom: 1px solid #bbb;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }

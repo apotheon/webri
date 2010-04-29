@@ -7,16 +7,16 @@
 #rescue
 #end
 
-if Gem.available? "json"
-  gem "json", ">= 1.1.3"
-else
-  gem "json_pure", ">= 1.1.3"
-end
+#if Gem.available? "json"
+#  gem "json", ">= 1.1.3"
+#else
+#  gem "json_pure", ">= 1.1.3"
+#end
+#require 'json'
 
-require 'json'
+#require 'fileutils'
 require 'pp'
 require 'pathname'
-#require 'fileutils'
 require 'yaml'
 
 require 'rdoc/rdoc'
@@ -115,6 +115,7 @@ module WebRI
 
     # FIXME: Pull copyright from project.
     def copyright
+      #metadata.copyright || "&copy; #{Time.now.strftime('Y')}"
       "(c) 2009".sub("(c)", "&copy;")
     end
 
@@ -206,7 +207,9 @@ module WebRI
     # List of toplevel files. RDoc supplies this via the #generate method.
 
     def files_toplevel
-      @files_toplevel ||= @files_rdoc.select { |f| f.parser == RDoc::Parser::Simple }
+      @files_toplevel ||= (
+        @files_rdoc.select{ |f| f.parser == RDoc::Parser::Simple }
+      )
     end
 
     #
@@ -245,22 +248,19 @@ module WebRI
       RDoc::TopLevel.find_file_named(*a,&b)
     end
 
-    #
     # TODO: What's this then?
 
     def json_creatable?
       RDoc::TopLevel.json_creatable?
     end
 
-
-    # RDoc needs this to function. ?
+    # RDoc needs this to function.
 
     def class_dir ; DIR_CLASS ; end
 
-    # RDoc needs this to function. ?
+    # RDoc needs this to function.
 
     def file_dir  ; DIR_FILE ; end
-
 
     # Build the initial indices and output objects
     # based on an array of top level objects containing
@@ -318,9 +318,9 @@ module WebRI
       end
     end
 
-    ##
-    ## Initialization
-    ##
+    #
+    # Initialization
+    #
 
     def initialize(options)
       @options = options
@@ -434,7 +434,6 @@ module WebRI
     #
     #   assets/
     #     css/      <- stylesheets
-    #     json/     <- json data table (*maybe top level is better?)
     #     img/      <- images
     #     inc/      <- server-side includes
     #     js/       <- javascripts
@@ -466,8 +465,9 @@ module WebRI
       end
     end
 
-    # Create the directories the generated docs will live in if
-    # they don't already exist.
+    # Create the directories the generated docs will reside,
+    # if they don't already exist.
+
     #def gen_sub_directories
     #  @path_output.mkpath
     #end
@@ -480,9 +480,9 @@ module WebRI
 
       files.each do |file|
         outfile     = self.path_output + file.path
-        debug_msg "working on %s (%s)" % [ file.full_name, path_output_relative(outfile) ]
+        debug_msg "working on %s (%s)" % [file.full_name, path_output_relative(outfile)]
 
-        rel_prefix  = self.path_output.relative_path_from( outfile.dirname )
+        rel_prefix  = self.path_output.relative_path_from(outfile.dirname)
         #context     = binding()
 
         debug_msg "rendering #{path_output_relative(outfile)}"
@@ -503,7 +503,7 @@ module WebRI
         rel_prefix = self.path_output.relative_path_from(outfile.dirname)
 
         debug_msg "rendering #{path_output_relative(outfile)}"
-        self.render_template( templatefile, outfile, :klass=>klass, :rel_prefix=>rel_prefix )
+        self.render_template(templatefile, outfile, :klass=>klass, :rel_prefix=>rel_prefix)
       end
     end
 
@@ -566,7 +566,6 @@ module WebRI
   end
 =end
 
-
     # Load and render the erb template in the given +templatefile+ within the
     # specified +context+ (a Binding object) and write it out to +outfile+.
     # Both +templatefile+ and +outfile+ should be Pathname-like objects.
@@ -575,6 +574,7 @@ module WebRI
       output = erb_template.render(templatefile, local_assigns)
 
       #output = eval_template(templatefile, context)
+
       # TODO: delete this dirty hack when documentation for example for GeneratorMethods will not be cutted off by <script> tag
       begin
         if output.respond_to? :force_encoding
@@ -597,6 +597,7 @@ module WebRI
       end
     end
 
+=begin
     # Load and render the erb template in the given +templatefile+ within the
     # specified +context+ (a Binding object) and return output
     # Both +templatefile+ and +outfile+ should be Pathname-like objects.
@@ -616,6 +617,7 @@ module WebRI
         ], err.backtrace
       end
     end
+=end
 
     #
 

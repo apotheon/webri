@@ -50,7 +50,7 @@ module WebRI
       end
     end
 
-    # FIXME: this probably goes not need to double dispatch via generator
+    # FIXME: this probably does not need to double dispatch via generator
     def include_template(*a,&b)
       @generator.include_template(*a,&b)
     end
@@ -62,7 +62,7 @@ module WebRI
     def class_dir ; @generator.class_dir ; end
     def file_dir  ; @generator.file_dir  ; end
 
-    #def all_classes_and_modules      ; @generator.all_classes_and_modules    ; end
+    #def all_classes_and_modules    ; @generator.all_classes_and_modules    ; end
 
     # classes and modules
     def classes                    ; @generator.classes                    ; end
@@ -72,7 +72,7 @@ module WebRI
 
     # just modules, no classes
     def modules                    ; @generator.modules                    ; end
-    def modules_toplevel           ; @generator.modulews_toplevel          ; end
+    def modules_toplevel           ; @generator.modules_toplevel           ; end
     def modules_salient            ; @generator.modules_salient            ; end
     def modules_hash               ; @generator.modules_hash               ; end
 
@@ -106,7 +106,6 @@ module WebRI
     end
 
     #
-
     def method_missing(s, *a, &b)
       if @generator.respond_to?(s)
         @generator.__send__(s, *a, &b)
