@@ -12,6 +12,7 @@ ri documentation dynamically, by running a webrick server, and
 a superalatvie Ruby documentation generator with a variety of
 built in templates.
 
+
 == FEATURES
 
 * WebRI provides Beautiful Templates, enhanced renditions of some of the best designs currently in use.
@@ -26,6 +27,11 @@ were developed separately, and are not well integrated.
 For this reason (at the very least) the ri server cannot use
 the templates available to the generators. If possible, a future
 version will allow this.
+
+
+== RELEASE NOTES
+
+Please see the HISTORY file.
 
 
 == USAGE SYNOPSIS

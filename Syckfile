@@ -23,7 +23,7 @@ box:
 
 rdoc:
   service  : RDoc
-  template : redfish
+  template : newfish
   include  : [ lib/**/*.rb, README, LICENSE, HISTORY ]
 #  exclude  :
 #    - "lib/webri/generators/*/template/**/*"
