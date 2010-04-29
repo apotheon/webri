@@ -41,11 +41,11 @@ module Syckle::Plugins
     #  !project.metadata.loadpath.empty?
     #end
 
-    # RDoc can run automatically if the project has
-    # a +doc/rdoc+ directory.
-    autorun do |project|
-      project.root.glob('doc/webri,webri').first
-    end
+    ## RDoc can run automatically if the project has
+    ## a +doc/rdoc+ directory.
+    #autorun do |project|
+    #  project.root.glob('doc/webri,webri').first
+    #end
 
     # Default location to store rdoc documentation files.
     DEFAULT_OUTPUT       = "doc/webri"
