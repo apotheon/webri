@@ -8,9 +8,9 @@
   <title><%= klass.type.capitalize %>: <%= klass.full_name %></title>
 
   <% if klass.type == "class" %>
-    <link rel="SHORTCUT ICON" href="<%= rel_prefix %>/assets/img/class.png">
+    <link rel="SHORTCUT ICON" href="<%= rel_prefix %>/assets/icon/class.png">
   <% else %>
-    <link rel="SHORTCUT ICON" href="<%= rel_prefix %>/assets/img/module.png">
+    <link rel="SHORTCUT ICON" href="<%= rel_prefix %>/assets/icon/module.png">
   <% end %>
 
   <link type="text/css" rel="stylesheet" href="<%= rel_prefix %>/assets/rdoc.css" media="screen" />
@@ -42,9 +42,9 @@
   <div class="head">
     <h1>
       <% if klass.type == "class" %>
-        <img src="<%= rel_prefix %>/assets/img/class.png" align="absmiddle">&nbsp;
+        <img src="<%= rel_prefix %>/assets/icon/class.png" align="absmiddle">&nbsp;
       <% else %>
-        <img src="<%= rel_prefix %>/assets/img/module.png" align="absmiddle">&nbsp;
+        <img src="<%= rel_prefix %>/assets/icon/module.png" align="absmiddle">&nbsp;
       <% end %>
       <a href="<%= rel_prefix %>/index.html"><%= h title %></a>&nbsp;
       <a href="/"><%= klass.full_name %></a>

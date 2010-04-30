@@ -2,9 +2,10 @@ require 'webri/generators/abstract'
 #require 'webri/components/search'
 #require 'webri/components/github'
 
+#
 module WebRI
 
-  # Onefishm as teh name suggests builds
+  # Onefish, as the name suggests, builds
   # a single page.
   #
   class Onefish < WebRI::Generator

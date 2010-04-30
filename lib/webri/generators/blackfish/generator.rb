@@ -2,6 +2,7 @@ require 'webri/generators/abstract'
 require 'webri/components/search'
 require 'webri/components/github'
 
+#
 module WebRI
 
   # Blackfish is based on Vladimir Kolesnikov's SDoc

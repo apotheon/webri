@@ -16,14 +16,11 @@ email:
 box:
   service  : Box
   types    : [gem, gz]
-  include  : [bin, demo, lib, meta, test, "[A-Z]*" ]
-  exclude  : ~
-  master   : false
   active   : true
 
 rdoc:
   service  : RDoc
-  template : redfish
+  template : newfish
   include  : [ lib/**/*.rb, README, LICENSE, HISTORY ]
 #  exclude  :
 #    - "lib/webri/generators/*/template/**/*"
