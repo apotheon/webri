@@ -25,7 +25,7 @@ begin
 
       alias_method :rdoc_parse, :parse
 
-      #TODO: Better way to versify template exists?
+      #TODO: Better way to verify template exists?
 
       def parse(argv)
         rdoc_parse(argv)

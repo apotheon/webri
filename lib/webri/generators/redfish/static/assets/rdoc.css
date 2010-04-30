@@ -64,6 +64,13 @@ ul {
   margin-left: 20px;
 }
 
+li {
+  line-height: 120%;
+}
+
+li p {
+  padding: 0; margin: 5px 0;
+}
 
 .head {
   width: auto;

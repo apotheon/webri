@@ -55,10 +55,12 @@ module WebRI
     PATH_TEMPLATE = PATH + 'abstract/template'
 
     # Directory where generated classes live relative to the root
-    DIR_CLASS = 'classes'
+    # TODO: Fix in future version when RDoc fixes.
+    CLASS_DIR = nil #'classes'
 
     # Directory where generated files live relative to the root
-    DIR_FILE = 'files'
+    # TODO: Fix in future version when RDoc fixes.
+    FILE_DIR = nil #'files'
 
     # Directory where static assets are located in the template
     DIR_ASSETS = 'assets'
@@ -256,11 +258,11 @@ module WebRI
 
     # RDoc needs this to function.
 
-    def class_dir ; DIR_CLASS ; end
+    def class_dir ; CLASS_DIR ; end
 
     # RDoc needs this to function.
 
-    def file_dir  ; DIR_FILE ; end
+    def file_dir  ; FILE_DIR ; end
 
     # Build the initial indices and output objects
     # based on an array of top level objects containing
@@ -324,7 +326,7 @@ module WebRI
 
     def initialize(options)
       @options = options
-      @options.diagram = false  # why?
+      #@options.diagram = false  # why?
 
       @path_base   = Pathname.pwd.expand_path
       @path_output = Pathname.new(@options.op_dir).expand_path(@path_base)
