@@ -1,6 +1,23 @@
 = RELEASE HISTORY
 
-== 1.2 / 2010-03-21
+== 1.2.1 / 2010-04-30
+
+New minor release fixes an issues with bad page links caused
+by what appears to a bug in RDoc. To correct, all toplevel namespace
+files/classes are placed directly in the output directory rather
+then in nicely separated subdirectories. When the issue in RDoc is
+resolved we'll undo this change. Also in this release are some minor
+tweaks to a few templates. In addition the system has been tested against
+the most recent version of RDoc (v2.5.8).
+
+Changes:
+
+* Fixed bad inter-page links.
+* Tweaked newfish and redfish templates.
+* Tested against latest version of RDoc (v2.5.8(
+
+
+== 1.2.0 / 2010-03-21
 
 This release adjusts for change in plugin directory name (i.e. plugins/)
 for the latest version of the plugin gem. This release also adds method
@@ -12,7 +29,7 @@ Changes:
 * Add quicksearch to redfish template's method list.
 
 
-== 1.1 / 2009-11-16
+== 1.1.0 / 2009-11-16
 
 This release improves the projects underlying design, makes minor
 improvements to the templates and adds a couple of new components.
@@ -24,7 +41,7 @@ Changes:
 * Added Prettify component, which is easier to use than highlight.js. 
 
 
-== 1.0 / 2009-11-01
+== 1.0.0 / 2009-11-01
 
 This second time I've built and RDoc template. If RDoc changes
 everything again I'm going to be quiet frazzled! ;)
@@ -36,7 +53,7 @@ Changes:
     * She were created anew!
 
 
-== 0.6 / 2009-08-24
+== 0.6.0 / 2009-08-24
 
 Add autolinking feature to generated HTML. The new code uses Regexps
 to locate class or module names and method names and inserts appropriate
