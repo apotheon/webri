@@ -1,6 +1,7 @@
 #$:.unshift File.dirname(__FILE__)
 
 begin
+
   require "rubygems"
   gem "rdoc", ">= 2.4.2"
 
@@ -32,7 +33,7 @@ begin
         begin #if %w{redfish twofish blackfish longfish onefish newfish}.include?(@template)
           require "webri/generators/#{template}"
           @generator = WebRI.const_get(@template.capitalize)
-        rescue Loaderror
+        rescue LoadError
         end
       end
     end
