@@ -43,6 +43,29 @@ module WebRI
       }
     end
 
+    # Example of output.
+    def svninfo_html(klass)
+      return '' if svninfo(klass).empty?
+      <<-HERE
+        <div id="file-svninfo-section" class="section">
+          <h3 class="section-header">Subversion Info</h3>
+          <div class="section-body">
+            <dl class="svninfo">
+              <dt>Rev</dt>
+              <dd>#{svninfo(klass)[:rev]}</dd>
+
+              <dt>Last Checked In</dt>
+              <dd>#{svninfo(klass)[:commitdate].strftime('%Y-%m-%d %H:%M:%S')}
+                (#{svninfo(klass)[:commitdelta]} ago)</dd>
+
+              <dt>Checked in by</dt>
+              <dd>#{svninfo(klass)[:committer]}</dd>
+            </dl>
+          </div>
+        </div>
+      HERE
+    end
+
     # Subversion rev
     #SVNRev = %$Rev: 52 $
 
