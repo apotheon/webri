@@ -12,19 +12,20 @@ module WebRI
       @metadata ||= get_metadata
     end
 
-    #
+    # TODO: Need a better way to determine if POM::Metadata exists.
     def get_metadata
       data = OpenStruct.new
       begin
         require 'pom/metadata'
-        pom = POM::Metadata.load(path_base)
+        pom = POM::Metadata.new(path_base)
         raise LoadError unless pom.name
         data.title       = pom.title
         data.version     = pom.version
         data.subtitle    = nil #pom.subtitle
         data.homepage    = pom.homepage
-        data.development = pom.development
-        data.mailinglist = pom.mailinglist
+        data.resources   = pom.resources
+        data.mailinglist = pom.resources.mailinglist
+        data.development = pom.resources.development
         data.forum       = pom.forum
         data.wiki        = pom.wiki
         data.blog        = pom.blog
@@ -37,7 +38,7 @@ module WebRI
           data.subtitle    = nil
           date.homepage    = gem.homepage
           data.mailinglist = gem.email
-          date.development = nil # TODO: how to improve?
+          data.development = nil
           data.forum       = nil
           data.wiki        = nil
           data.blog        = nil
