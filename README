@@ -7,26 +7,11 @@
 
 == DESCRIPTION
 
-WebRI is both a dynamic web-based ri-browser which can provided
-ri documentation dynamically, by running a webrick server, and
-a superalatvie Ruby documentation generator with a variety of
-built in templates.
+WebRI is a dynamic web-based ri-browser which can provided
+ri documentation dynamically, by running a webrick server.
 
-
-== FEATURES
-
-* WebRI provides beautiful templates, including enhanced renditions of some of the most popular designs.
-* Variety of templates built-in, to meet a varitey of tastes and needs.
-* Under the hood, a component system allows geneators to be more easily extended.
-
-
-== LIMITATIONS
-
-Please note that the ri web server and the generation system
-were developed separately, and are not well integrated.
-For this reason (at the very least) the ri server cannot use
-the templates available to the generators. If possible, a future
-version will allow this.
+Presently WebRI utilizes ri's own html output mode to produce
+web pages.
 
 
 == RELEASE NOTES
@@ -35,24 +20,6 @@ Please see the HISTORY file.
 
 
 == USAGE SYNOPSIS
-
-=== Generate Documentation
-
-WebRI provides a <tt>webri</tt> executable you can use to generate
-documentation. The interface is identical to <tt>rdoc</tt>. Use
-the -T option to specify a template type.
-
-  $ webri -T redfish README lib/
-
-You can use <tt>rdoc</tt> command if you prefer (though in far
-off future versions this may not be the case).
-
-  $ rdoc -T redfish README lib/
-
-WebRI extend RIDoc to recognize the templates that WebRI will handle
-and transfers control to appropriate WebRI generator accordingly.
-
-=== Using the Web Server
 
 WebRI can be used as a dynamic ri browser, either for a single project
 or for a collection of libraries. Indeed, the WebRI server can be used

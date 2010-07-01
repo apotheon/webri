@@ -1,6 +1,6 @@
 --- 
 title    : WebRI
-summary  : Ruby Docs that *POP*!
+summary  : RI Web Browser
 copyright: Copyright (c) 2008 Thomas Sawyer
 license  : MIT
 suite    : proutils
@@ -9,8 +9,7 @@ created  : 2008-02-21
 authors  : Thomas Sawyer
 
 description:
-  WebRI is an RDoc template system with a number of built-in templates.
-  It also includes a Webrick-based RI browser.
+  WebRI is a Webrick-based RI browser.
 
 resources:
   homepage  : http://proutils.github.com/webme

@@ -1,12 +1,151 @@
 #!/usr/bin/env ruby
 
-require 'webri'
+# == Synopsis
+#
+# webri: Serve ri documentation via the Web
+#
+# == Usage
+#
+# webri [OPTIONS] ... [RI_DIR]
+#
+# OPTIONS:
+#
+#   -h, --help
+#      show help
+#
+#   -o, --output OUTPUT_DIR
+#      ouput static files to OUTPUT_DIR
+#
+# RI_DIR:
+#
+#   The directory in which to find the ri files generate by RDoc.
 
-begin
-  r = RDoc::RDoc.new
-  r.document(ARGV)
-rescue RDoc::RDocError => e
-  $stderr.puts e.message
-  exit(1)
+#require 'rdoc/usage'
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: webri [options] [ri-dir]"
+
+  opts.on("-o", "--output DIR", "Output static files to this directory.") do |v|
+    options[:output] = v
+  end
+
+  opts.on("-1", "--onepage", "Generate a single page document.") do |v|
+    options[:onepage] = true
+  end
+
+  opts.on("-t", "--title TITLE", "Title to use on webpages.") do |v|
+    options[:title] = v
+  end
+
+  opts.separator ""
+  opts.separator "Location options (only apply if no ri-dir is given):"
+
+  opts.on("--[no-]system", "Include documentation from Ruby's standard library.") do |v|
+    options[:system] = v
+  end
+
+  opts.on("--[no-]site", "Include documentation from libraries installed in site locations.") do |v|
+    options[:site] = v
+  end
+
+  opts.on("--[no-]gems", "Include documentation from Ruby's standard library.") do |v|
+    options[:gems] = v
+  end
+
+  opts.on("--[no-]home", "Include documentation stored in ~/.rdoc. Defaults to true.") do |v|
+    options[:home] = v
+  end
+
+  opts.on("--ruby", "Same as --system --no-site --no-gems --no-home.") do |v|
+    options[:system] = true
+    options[:site] = false
+    options[:gems] = false
+    options[:home] = false
+  end
+
+  opts.separator ""
+  opts.separator "Common options:"
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end.parse!
+
+#if ARGV.length != 1
+#  puts "Missing ri directory argument (try --help)"
+#  exit 0
+#end
+
+options[:library] = ARGV.shift
+
+# --- ---
+
+require 'webri/server/ri_service'
+
+service = WebRI::RiService.new(options)
+
+if output = options[:output]
+
+  if options[:onepage]
+    # generate static pages
+    require 'webri/generator1'
+    wri = WebRI::GeneratorOne.new(service, :title=>options[:title])
+    wri.generate(output)
+  else
+    # generate static pages
+    require 'webri/generator'
+    wri = WebRI::Generator.new(service, :title=>options[:title])
+    wri.generate(output)
+  end
+
+else
+
+  # serve dynamically via WEBrick
+
+  require 'webri/server/server'
+
+  wri = WebRI::Server.new(service, :title=>options[:title])
+  #puts wri.to_html
+
+  require 'webrick'
+  include WEBrick
+
+  p wri.directory + "/public"
+
+  s = HTTPServer.new(
+    :Port            => 8888,
+    :DocumentRoot    => wri.directory + "/public"
+  )
+
+  s.mount_proc("/"){ |req, res|
+    path = req.path_info.sub(/^\//,'')
+    if path == '' 
+      res.body = wri.index
+      res['Content-Type'] = "text/html"
+    else
+      res.body = wri.lookup(path)
+      res['Content-Type'] = "text/html"
+    end
+  }
+
+#  s.mount_proc("/ri"){|req, res|
+#    #key = File.basename(req.path_info)
+#    #p key
+#    res.body = wri.lookup(req)
+#    res['Content-Type'] = "text/html"
+#  }
+
+  ## mount subdirectories
+  s.mount("/assets",  HTTPServlet::FileHandler, wri.directory + "/assets")
+  #s.mount("/css", HTTPServlet::FileHandler, wri.directory + "/assets/css")
+  #s.mount("/img", HTTPServlet::FileHandler, wri.directory + "/assets/img")
+
+  trap("INT"){ s.shutdown }
+  s.start
+
 end
 
