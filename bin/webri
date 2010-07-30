@@ -84,7 +84,7 @@ options[:library] = ARGV.shift
 
 # --- ---
 
-require 'webri/server/ri_service'
+require 'webri/ri_service'
 
 service = WebRI::RiService.new(options)
 
@@ -106,7 +106,7 @@ else
 
   # serve dynamically via WEBrick
 
-  require 'webri/server/server'
+  require 'webri/server'
 
   wri = WebRI::Server.new(service, :title=>options[:title])
   #puts wri.to_html

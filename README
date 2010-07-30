@@ -1,8 +1,8 @@
 = WebRI
 
-* http://proutils.github.com/webri
-* http://github.com/proutils/webri
-* http://googlegroups/group/proutils
+* home: http://proutils.github.com/webri
+* code: http://github.com/proutils/webri
+* talk: http://googlegroups/group/proutils
 
 
 == DESCRIPTION
@@ -25,10 +25,10 @@ WebRI can be used as a dynamic ri browser, either for a single project
 or for a collection of libraries. Indeed, the WebRI server can be used
 to browse the entire installed object system --eveything documented in
 your central install locations. To do the later, simply execute
-<tt>webri-server</tt> with no arguments and open a webrowser to 
-the local port designated (see below).
++webri+ with no arguments and open a web-browser to the local port designated
+(see below).
 
-  $ webr-server
+  $ webri
 
 To browse per-project ri documentation, you will first need to locate
 the project's ri files, either by locating them in your system installation
@@ -43,7 +43,7 @@ I will use doc/ri/ in the following example, adjust your directory as needed.
 
 With ri files loacted you can view them with:
 
-  $ webri-server doc/ri
+  $ webri doc/ri
 
 You will see a Webrick server start up, informing you of the port being used.
 
@@ -59,9 +59,8 @@ navigate to:
 On the left side of the screen you will see a navigation tree, and the right side
 contans an infromation panel.
 
-NOTE: Becuase <tt>ri</tt> itself isn't very fast, if you use WebRI against the
+NOTE: Becuase +ri+ itself isn't very fast, if you use WebRI against the
 entire set of installed Ruby libraries it can take a few seconds to load up.
-(Sure wish FastRI turned out for the better.)
 
 
 == INSTALLATION
@@ -73,7 +72,7 @@ Installing via RubyGems is per the usual:
 
 == COPYING
 
-WebRI Copyright (c) 2009 Thomas Sawyer, MIT License
+WebRI Copyright (c) 2009 Thomas Sawyer, Apache License 2.0
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

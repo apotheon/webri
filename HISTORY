@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 2.0.0 / 2010-08-01
+
+WebRI has been stripped of all RDoc generators, which have been spun-off
+as the RDazzle project. WebRI now constists of only the dynamic RI server.
+
+Changes:
+
+* Spun the RDoc generators off to RDazzle project.
+
+
 == 1.2.1 / 2010-04-30
 
 New minor release fixes an issues with bad page links caused
