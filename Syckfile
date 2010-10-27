@@ -22,26 +22,16 @@ rdoc:
   service  : RDoc
   template : newfish
   include  : [ lib/**/*.rb, README, LICENSE, HISTORY ]
-#  exclude  :
-#    - "lib/webri/generators/*/template/**/*"
-#    - "lib/webri/generators/*/static/**/*"
-#    - "lib/webri/components/*/static/**/*"
-#    - "lib/webri/server/assets/**/*"
-#    - "lib/webri/server/templates/**/*"
+  output   : site/docs/api
   main     : ~
   extra    : ~
   active   : true
 
 ridoc:
-  service: RIDoc
-  include: [ lib/**/*.rb ]
-#  exclude:
-#    - "lib/webri/generators/*/template/**/*"
-#    - "lib/webri/generators/*/static/**/*"
-#    - "lib/webri/components/*/static/**/*"
-#    - "lib/webri/riserver/assets/**/*"
-#    - "lib/webri/riserver/templates/**/*"
-  active : true
+  service : RIDoc
+  include : [ lib/**/*.rb ]
+  output  : ri
+  active  : true
 
 dnote:
   service: DNote

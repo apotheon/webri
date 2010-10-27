@@ -1,0 +1,26 @@
+#!mast -x Syckfile bin demo lib test [A-Z]*
+bin/webri
+lib/webri/assets/css/style.css
+lib/webri/assets/css/style1.css
+lib/webri/assets/img/class.png
+lib/webri/assets/img/dir.gif
+lib/webri/assets/img/mod.ico
+lib/webri/assets/img/ruby_logo.png
+lib/webri/assets/js/jquery.js
+lib/webri/assets/js/ri.jquery.js
+lib/webri/core_ext/fileutils.rb
+lib/webri/core_ext/rdoc.rb
+lib/webri/core_ext/times.rb
+lib/webri/generator.rb
+lib/webri/generator1.rb
+lib/webri/heirarchy.rb
+lib/webri/opesc.rb
+lib/webri/ri_service.rb
+lib/webri/server.rb
+lib/webri/templates/index.html
+lib/webri/templates/index1.html
+lib/webri.rb
+LICENSE
+README
+HISTORY
+ROADMAP

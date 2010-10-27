@@ -1,11 +1,10 @@
-MANIFEST
 .cache
 log
 pkg
 demo/fish-sampler/doc
-doc/rdoc
-doc/ri
+ri
 doc/webri
 doc/webri.html
+site/docs
 site/samples
 work/sandbox
