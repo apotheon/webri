@@ -34,16 +34,16 @@ To browse per-project ri documentation, you will first need to locate
 the project's ri files, either by locating them in your system installation
 or by generating them for a project, which can be done using rdoc, eg.
 
-  $ rdoc --ri --op "doc/ri" lib/
+  $ rdoc --ri --op ri lib/
 
 Sometimes a package will include a convenience script for generating these.
-Try running 'rake -T', or look for a 'script/' or 'task/' executable that does
-the job. Usually the generated documentation is placed in either ri/ or doc/ri/.
-I will use doc/ri/ in the following example, adjust your directory as needed.
+Try running `rake -T`, or look for a `script/` executable that does
+the job. Usually the generated documentation is placed in either `ri/` or `doc/ri/`.
+I will use ri/ in the following example, adjust your directory as needed.
 
-With ri files loacted you can view them with:
+With ri files located you can view them by supplying the direcotry, e.g.
 
-  $ webri doc/ri
+  $ webri ri/
 
 You will see a Webrick server start up, informing you of the port being used.
 
@@ -56,11 +56,17 @@ navigate to:
 
   http://localhost:8888/
 
-On the left side of the screen you will see a navigation tree, and the right side
-contans an infromation panel.
+On the left side of the screen you will see a navigation tree, and the right
+side contans an infromation panel.
 
 NOTE: Becuase +ri+ itself isn't very fast, if you use WebRI against the
 entire set of installed Ruby libraries it can take a few seconds to load up.
+
+To generate a static website for the RI docs use the `--output/-o` option
+to tell webri where they files should be saved. You can also use the `-1`
+option to generate all documentation on single web page.
+
+Use `--help` for information on additonal options.
 
 
 == INSTALLATION
@@ -72,13 +78,17 @@ Installing via RubyGems is per the usual:
 
 == COPYING
 
-WebRI Copyright (c) 2009 Thomas Sawyer, Apache License 2.0
+WebRI Copyright (c) 2009 Thomas Sawyer
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
