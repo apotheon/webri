@@ -27,7 +27,9 @@ module WebRI
     #
     def info(keyword)
       #puts "KEYWORD: #{keyword.inspect}"
-      html = `ri #{ri_opts} -f html #{keyword}`
+      cmd = "ri #{ri_opts} -f html #{keyword}"
+      puts cmd if $DEBUG
+      html = `#{cmd}`
       return "<br/>#{html}<br/><br/>"
     end
 
@@ -43,10 +45,10 @@ module WebRI
         files = Dir['**/*']
         files = files.map do |f|
           case f
-          when /\-i.yaml$/
-            (File.dirname(f) + '#' + URI.unescape(File.basename(f).chomp('-i.yaml'))).gsub('/' , '::')
-          when /\-c.yaml$/
-            (File.dirname(f) + '::' + URI.unescape(File.basename(f).chomp('-c.yaml'))).gsub('/' , '::')
+          when /\-i.ri$/
+            (File.dirname(f) + '#' + URI.unescape(File.basename(f).chomp('-i.ri'))).gsub('/' , '::')
+          when /\-c.ri$/
+            (File.dirname(f) + '::' + URI.unescape(File.basename(f).chomp('-c.ri'))).gsub('/' , '::')
           else
 	    #f.sub(/^cdesc-/,'').gsub('/' , '::')
             nil

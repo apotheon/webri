@@ -69,6 +69,10 @@ OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Common options:"
 
+  opts.on_tail("--debug", "Run with $DEBUG set to true.") do
+    $DEBUG = true
+  end
+
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit
@@ -114,7 +118,7 @@ else
   require 'webrick'
   include WEBrick
 
-  p wri.directory + "/public"
+  puts "PUBLIC: #{wri.directory}/public" if $DEBUG
 
   s = HTTPServer.new(
     :Port            => 8888,

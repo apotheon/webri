@@ -1,7 +1,13 @@
 #$:.unshift File.dirname(__FILE__)
 
-begin
+require 'webri/meta/data'
 
+module WebRI
+  LOADPATH = File.dirname(__FILE__)
+end
+
+=begin
+begin
   require "rubygems"
   gem "rdoc", ">= 2.4.2"
 
@@ -9,7 +15,6 @@ begin
 
   module WebRI
     LOADPATH = File.dirname(__FILE__)
-    VERSION  = "1.2.1"  #:till: VERSION="<%= version %>"
   end
 
   require "rdoc/c_parser_fix"
@@ -45,4 +50,4 @@ rescue Exception
   warn "WebRI requires RDoc v2.4.2 or greater."
 
 end
-
+=end
