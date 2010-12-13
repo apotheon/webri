@@ -86,13 +86,15 @@ end.parse!
 
 options[:library] = ARGV.shift
 
-# --- ---
+# Do the deed...
 
-require 'webri/ri_service'
+require 'webri' #require 'webri/ri_service'
 
 service = WebRI::RiService.new(options)
 
 if output = options[:output]
+
+  # generate a static vesrsion of the site
 
   if options[:onepage]
     # generate static pages
@@ -110,7 +112,7 @@ else
 
   # serve dynamically via WEBrick
 
-  require 'webri/server'
+  #require 'webri/server'
 
   wri = WebRI::Server.new(service, :title=>options[:title])
   #puts wri.to_html

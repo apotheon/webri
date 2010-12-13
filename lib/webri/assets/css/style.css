@@ -21,9 +21,13 @@ p { padding: 5px 0; }
 
 a { text-decoration: none; }
 
+#screen {
+  width: 100%;
+}
+
 /* HEADER */
 
-#header { width: 100%; background: white; height: 100px; }
+#header { width: 100%; background: white; height: 100px; border-bottom: 1px solid #ccc; }
 #header h1 { margin: 0; padding: 0; font-size: 64px; }
 #header h2 { margin: 0; padding: 0; font-size: 10pt; font-weight: bold; }
 #header .small { font-size: 10pt; }
@@ -32,7 +36,7 @@ a { text-decoration: none; }
 
 /* TREE */
 
-      #tree { padding: 10px; background: white; float: left; width: 250px; overflow: scroll; border: 1px solid #ccc; }
+      #tree { padding: 10px; background: white; width: 94%; overflow: auto; }
          ul { cursor: pointer; cursor: hand; padding-left: 10px; }
          li { margin-left: 10px; }
    .trigger { cursor: pointer; cursor: hand; }
@@ -46,13 +50,12 @@ a { text-decoration: none; }
 /* MAIN */
 
 #main {
-  margin-left: 260px;
-  padding: 10px 15px; /* bottom padding for footer */
-  border: 1px solid #ccc;
+  width: 94%;
+  padding: 5px 10px; /* bottom padding for footer */
   background: white;
-  overflow: scroll;
+  overflow: auto;
   font-family: monospace;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .ad { float: right; padding: 20px 20px 0 0; }

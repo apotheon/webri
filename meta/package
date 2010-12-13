@@ -1,7 +1,0 @@
-name    : webri
-version : 2.0.0
-date    : 2010-10-29
-
-requires:
-- syckle (build)
-

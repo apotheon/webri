@@ -1,53 +1,18 @@
-#$:.unshift File.dirname(__FILE__)
-
-require 'webri/meta/data'
-
 module WebRI
-  LOADPATH = File.dirname(__FILE__)
-end
-
-=begin
-begin
-  require "rubygems"
-  gem "rdoc", ">= 2.4.2"
-
-  require "rdoc/rdoc"
-
-  module WebRI
-    LOADPATH = File.dirname(__FILE__)
+  #
+  def self.metadata
+    @metadata ||= (
+      require 'yaml'
+      YAML.load(File.new(File.dirname(__FILE__) + '/webri.yml'))
+    )
   end
 
-  require "rdoc/c_parser_fix"
-
-  unless defined? $WEBRI_FIXED_RDOC_OPTIONS
-    $WEBRI_FIXED_RDOC_OPTIONS = 1
-
-    class RDoc::Options
-      #alias_method :rdoc_initialize, :initialize
-      #def initialize
-      #  rdoc_initialize
-      #  @generator = RDoc::Generator::RDazzle
-      #end
-
-      alias_method :rdoc_parse, :parse
-
-      #TODO: Better way to verify template exists?
-
-      def parse(argv)
-        rdoc_parse(argv)
-        begin #if %w{redfish twofish blackfish longfish onefish newfish}.include?(@template)
-          require "webri/generators/#{template}"
-          @generator = WebRI.const_get(@template.capitalize)
-        rescue LoadError
-        end
-      end
-    end
-
+  #
+  def self.const_missing(name)
+    key = name.to_s.downcase
+    metadata[key] || super(name)
   end
-
-rescue Exception
-
-  warn "WebRI requires RDoc v2.4.2 or greater."
-
 end
-=end
+
+require 'webri/server'
+require 'webri/ri_service'

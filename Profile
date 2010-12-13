@@ -1,9 +1,15 @@
 --- 
+name    : webri
+version : 2.0.0
+
+requires:
+- syckle (build)
+
 title    : WebRI
 summary  : RI Web Browser
 copyright: Copyright (c) 2008 Thomas Sawyer
-license  : MIT
-suite    : proutils
+license  : Apache 2.0
+company  : RubyWork
 contact  : http://googlegroups.com/group/proutils
 created  : 2008-02-21
 authors  : Thomas Sawyer
