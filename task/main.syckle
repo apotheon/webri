@@ -20,7 +20,7 @@ box:
 
 rdoc:
   service  : RDoc
-  template : newfish
+  format   : newfish
   include  : [ lib/**/*.rb, README, LICENSE, HISTORY ]
   output   : site/docs/api
   main     : ~
