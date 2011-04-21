@@ -1,10 +1,5 @@
 = WebRI
 
-* home: http://proutils.github.com/webri
-* code: http://github.com/proutils/webri
-* talk: http://googlegroups/group/proutils
-
-
 == DESCRIPTION
 
 WebRI is a dynamic web-based ri-browser which can provided
@@ -12,6 +7,13 @@ ri documentation dynamically, by running a webrick server.
 
 Presently WebRI utilizes ri's own html output mode to produce
 web pages.
+
+
+== RESOURCES
+
+* home: http://proutils.github.com/webri
+* code: http://github.com/proutils/webri
+* talk: http://googlegroups/group/proutils
 
 
 == RELEASE NOTES
@@ -23,7 +25,7 @@ Please see the HISTORY file.
 
 WebRI can be used as a dynamic ri browser, either for a single project
 or for a collection of libraries. Indeed, the WebRI server can be used
-to browse the entire installed object system --eveything documented in
+to browse the entire installed object system --everything documented in
 your central install locations. To do the later, simply execute
 +webri+ with no arguments and open a web-browser to the local port designated
 (see below).
@@ -38,10 +40,11 @@ or by generating them for a project, which can be done using rdoc, eg.
 
 Sometimes a package will include a convenience script for generating these.
 Try running `rake -T`, or look for a `script/` executable that does
-the job. Usually the generated documentation is placed in either `ri/` or `doc/ri/`.
-I will use ri/ in the following example, adjust your directory as needed.
+the job. Usually the generated documentation is placed in either `.ri`, `ri/`,
+`doc/ri/`, or the like. I will use ri/ in the following example, adjust your
+directory as needed.
 
-With ri files located you can view them by supplying the direcotry, e.g.
+With ri files located you can view them by supplying the directory, e.g.
 
   $ webri ri/
 
@@ -57,16 +60,16 @@ navigate to:
   http://localhost:8888/
 
 On the left side of the screen you will see a navigation tree, and the right
-side contans an infromation panel.
+side contains an information panel.
 
-NOTE: Becuase +ri+ itself isn't very fast, if you use WebRI against the
+NOTE: Because +ri+ itself isn't very fast, if you use WebRI against the
 entire set of installed Ruby libraries it can take a few seconds to load up.
 
 To generate a static website for the RI docs use the `--output/-o` option
 to tell webri where they files should be saved. You can also use the `-1`
 option to generate all documentation on single web page.
 
-Use `--help` for information on additonal options.
+Use `--help` for information on additional options.
 
 
 == INSTALLATION

@@ -55,15 +55,15 @@ OptionParser.new do |opts|
     options[:gems] = v
   end
 
-  opts.on("--[no-]home", "Include documentation stored in ~/.rdoc. Defaults to true.") do |v|
+  opts.on("--[no-]home", "Include documentation stored in ~/.rdoc.") do |v|
     options[:home] = v
   end
 
   opts.on("--ruby", "Same as --system --no-site --no-gems --no-home.") do |v|
     options[:system] = true
-    options[:site] = false
-    options[:gems] = false
-    options[:home] = false
+    options[:site]   = false
+    options[:gems]   = false
+    options[:home]   = false
   end
 
   opts.separator ""
@@ -85,6 +85,13 @@ end.parse!
 #end
 
 options[:library] = ARGV.shift
+
+if not %w{library system site gems home}.any?{ |type| options[type.to_sym] }
+  options[:system] = true
+  options[:site]   = true
+  options[:gems]   = true
+  options[:home]   = true
+end
 
 # Do the deed...
 
