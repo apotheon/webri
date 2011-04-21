@@ -1,4 +1,4 @@
-#!mast -x Syckfile bin demo lib test [A-Z]*
+#!mast bin demo lib test [A-Z]*
 bin/webri
 lib/webri/assets/css/style.css
 lib/webri/assets/css/style1.css
@@ -20,7 +20,10 @@ lib/webri/server.rb
 lib/webri/templates/index.html
 lib/webri/templates/index1.html
 lib/webri.rb
-LICENSE
-README
-HISTORY
-ROADMAP
+lib/webri.yml
+Profile
+README.rdoc
+History.rdoc
+Version
+License.txt
+Roadmap.rdoc

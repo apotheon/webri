@@ -1,6 +1,7 @@
 --- 
 name: webri
 company: RubyWork
+spec_version: 1.0.0
 title: WebRI
 contact: http://googlegroups.com/group/proutils
 requires: 
@@ -9,9 +10,8 @@ requires:
   name: syckle
   version: 0+
 resources: 
-  "": git://github.com/proutils/webme.git
+  repository: git://github.com/proutils/webme.git
   home: http://proutils.github.com/webme
-pom_verison: 1.0.0
 manifest: 
 - bin/webri
 - lib/webri/assets/css/style.css
@@ -34,14 +34,17 @@ manifest:
 - lib/webri/templates/index.html
 - lib/webri/templates/index1.html
 - lib/webri.rb
-- LICENSE
-- README
-- HISTORY
-- ROADMAP
+- lib/webri.yml
+- Profile
+- README.rdoc
+- History.rdoc
+- Version
+- License.txt
+- Roadmap.rdoc
 version: 2.0.0
-copyright: Copyright (c) 2008 Thomas Sawyer
 licenses: 
 - Apache 2.0
+copyright: Copyright (c) 2008 Thomas Sawyer
 description: WebRI is a Webrick-based RI browser.
 summary: RI Web Browser
 authors: 
