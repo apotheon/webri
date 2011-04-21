@@ -1,7 +1,0 @@
-= WebRI ROADMAP
-
-* Change to a Rack server instead of the Webrick server.
-* Incoporate firefox keyword mode? (see MGeorgi Blog)
-* If ri2 pans out use Shomen instead of RDoc's.
-
-
