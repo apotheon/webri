@@ -1,4 +1,5 @@
 require 'webri/server'
+require 'fileutils'
 
 module WebRI
 
