@@ -1,4 +1,5 @@
-#!mast bin demo lib test [A-Z]*
+#!mast .ruby .yardopts bin lib man qed spec test [A-Z]*.*
+.ruby
 bin/webri
 lib/webri/assets/css/style.css
 lib/webri/assets/css/style1.css
@@ -21,9 +22,6 @@ lib/webri/templates/index.html
 lib/webri/templates/index1.html
 lib/webri.rb
 lib/webri.yml
-Profile
+HISTORY.rdoc
 README.rdoc
-History.rdoc
-Version
-License.txt
-Roadmap.rdoc
+COPYING.rdoc

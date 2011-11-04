@@ -1,52 +1,38 @@
---- 
-name: webri
-company: RubyWork
-spec_version: 1.0.0
-title: WebRI
-contact: http://googlegroups.com/group/proutils
-requires: 
-- group: 
+---
+source:
+- meta
+authors:
+- name: Trans
+  email: transfire@gmail.com
+copyrights:
+- holder: Rubyworks
+  year: '2008'
+replacements: []
+alternatives: []
+requirements:
+- name: detroit
+  groups:
   - build
-  name: syckle
-  version: 0+
-resources: 
-  repository: git://github.com/proutils/webme.git
-  home: http://proutils.github.com/webme
-manifest: 
-- bin/webri
-- lib/webri/assets/css/style.css
-- lib/webri/assets/css/style1.css
-- lib/webri/assets/img/class.png
-- lib/webri/assets/img/dir.gif
-- lib/webri/assets/img/mod.ico
-- lib/webri/assets/img/ruby_logo.png
-- lib/webri/assets/js/jquery.js
-- lib/webri/assets/js/ri.jquery.js
-- lib/webri/core_ext/fileutils.rb
-- lib/webri/core_ext/rdoc.rb
-- lib/webri/core_ext/times.rb
-- lib/webri/generator.rb
-- lib/webri/generator1.rb
-- lib/webri/heirarchy.rb
-- lib/webri/opesc.rb
-- lib/webri/ri_service.rb
-- lib/webri/server.rb
-- lib/webri/templates/index.html
-- lib/webri/templates/index1.html
-- lib/webri.rb
-- lib/webri.yml
-- Profile
-- README.rdoc
-- History.rdoc
-- Version
-- License.txt
-- Roadmap.rdoc
-version: 2.0.0
-licenses: 
-- Apache 2.0
-copyright: Copyright (c) 2008 Thomas Sawyer
-description: WebRI is a Webrick-based RI browser.
+  development: true
+dependencies: []
+conflicts: []
+repositories:
+- uri: git://github.com/rubyworks/webri.git
+  scm: git
+  name: upstream
+resources:
+  home: http://rubyworks.github.com/webri
+  code: http://github.com/rubyworks/webri
+  mail: http://groups.google.com/group/rubyworks-mailinglist
+extra: {}
+load_path:
+- lib
+revision: 0
+created: '2008-02-21'
 summary: RI Web Browser
-authors: 
-- Thomas Sawyer
-created: 2008-02-21
+title: WebRI
+version: 2.0.0
+name: webri
+description: WebRI is a Webrick-based RI browser.
+organization: Rubyworks
+date: '2011-11-03'

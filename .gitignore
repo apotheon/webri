@@ -1,10 +1,7 @@
-.cache
+.reap/digest
+.rdoc
+doc
 log
 pkg
-demo/fish-sampler/doc
-ri
-doc/webri
-doc/webri.html
-site/docs
-site/samples
+site
 work/sandbox
