@@ -7,8 +7,8 @@
 
 == DESCRIPTION
 
-WebRI is a dynamic web-based ri-browser which can provided
-ri documentation dynamically, by running a webrick server.
+WebRI is a dynamic web-based ri-browser which can provide ri
+documentation dynamically, by running a webrick server.
 
 Presently WebRI utilizes ri's own html output mode to produce
 web pages.
@@ -23,16 +23,16 @@ Please see the HISTORY file.
 
 WebRI can be used as a dynamic ri browser, either for a single project
 or for a collection of libraries. Indeed, the WebRI server can be used
-to browse the entire installed object system --everything documented in
-your central install locations. To do the later, simply execute
-+webri+ with no arguments and open a web-browser to the local port designated
-(see below).
+to browse the entire installed object system -- everything documented
+in your central install locations. To do the latter, simply execute
++webri+ with no arguments and open a web-browser to the local port
+designated (see below).
 
   $ webri
 
 To browse per-project ri documentation, you will first need to locate
 the project's ri files, either by locating them in your system installation
-or by generating them for a project, which can be done using rdoc, eg.
+or by generating them for a project, which can be done using rdoc, e.g.
 
   $ rdoc --ri --op ri lib/
 
@@ -64,8 +64,8 @@ NOTE: Because +ri+ itself isn't very fast, if you use WebRI against the
 entire set of installed Ruby libraries it can take a few seconds to load up.
 
 To generate a static website for the RI docs use the `--output/-o` option
-to tell webri where they files should be saved. You can also use the `-1`
-option to generate all documentation on single web page.
+to tell webri where the files should be saved. You can also use the `-1`
+option to generate all documentation on a single web page.
 
 Use `--help` for information on additional options.
 
